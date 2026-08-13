@@ -1,0 +1,8 @@
+{
+  "name": "Night Shift",
+  "start": "22:00",
+  "end": "06:00",
+  "timezone": "Asia/Kolkata",
+  "inactiveThresholdMinutes": 10,
+  "connectionLossThresholdMinutes": 2
+}
