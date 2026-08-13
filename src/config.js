@@ -1,2 +1,6 @@
-export const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
-export const BASE_URL = import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL.replace('/api', '') : 'http://localhost:5000';
+// In production, the frontend and backend are on the same domain (Vercel)
+// In development, the Vite dev server runs on a different port than Express
+const isProd = import.meta.env.MODE === 'production';
+
+export const API_URL = isProd ? '/api' : 'http://localhost:5000/api';
+export const BASE_URL = isProd ? '' : 'http://localhost:5000';

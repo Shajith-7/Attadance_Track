@@ -65,8 +65,15 @@ app.use((err, req, res, next) => {
 });
 
 const PORT = process.env.PORT || 5000;
-connectDB().then(() => {
-    app.listen(PORT, () => {
-        console.log(`Server running securely on port ${PORT}`);
+
+// Export the app for Vercel serverless functions
+module.exports = app;
+
+// Only start the server if run directly (e.g., local dev)
+if (require.main === module) {
+    connectDB().then(() => {
+        app.listen(PORT, () => {
+            console.log(`Server running securely on port ${PORT}`);
+        });
     });
-});
+}
